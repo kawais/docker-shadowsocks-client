@@ -1,8 +1,8 @@
 FROM python:3-alpine
-
+ADD ./shadowsocks-master.zip /shadowsocks-master.zip
 RUN echo 'http://nl.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories \
     && apk add -U  libsodium privoxy \
-    &&  pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U \
+    &&  pip install /shadowsocks-master.zip -U \
     && rm -rf /var/cache/apk/*
 
 ENV SERVER 0.0.0.0
