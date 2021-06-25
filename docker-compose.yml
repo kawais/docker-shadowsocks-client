@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  proxy:
+    build:
+      context: ./
+    container_name: ss_proxy
+    environment:
+      - SERVER=<server_ip>
+      - SERVER_PORT=<server_port>
+      - LOCAL_PORT=<local_ss_port>
+      - PASSWORD=<password>
+    expose:
+      - "1080"
+      - "8118"
+    ports:
+      - "8118:8118" 
